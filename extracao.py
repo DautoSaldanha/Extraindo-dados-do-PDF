@@ -104,7 +104,7 @@ if tabela_desejada is not None:
     
     resultado_final = resultado_final.drop(1)
     
-    resultado_final.to_csv("resultado.csv", index=False)
+    #resultado_final.to_csv("resultado.csv", index=False)
 
     display(teste)
     display(resultado_final)
@@ -145,7 +145,7 @@ if tabela_dois is not None:
 
     final_segunda_tabela = final_segunda_tabela.drop(0)
 
-    final_segunda_tabela.to_csv("resultadoSegunda.csv", index=False)
+    #final_segunda_tabela.to_csv("resultadoSegunda.csv", index=False)
 
     display(final_segunda_tabela)
 
@@ -179,4 +179,37 @@ if tabela_tres is not None:
     
     display(tabela_da_tensao)
 
-    coluna_da_tensao.to_csv("Finaliza.csv", index=False, header=['TENSÃO CONTRATADA'])
+    #coluna_da_tensao.to_csv("Finaliza.csv", index=False, header=['TENSÃO CONTRATADA'])
+
+
+    col_m = tabela_desejada.iloc[:, 12]
+    col_n = tabela_desejada.iloc[:, 13]
+    col_c = tabela_desejada.iloc[:, 2]
+    col_o = tabela_desejada.iloc[:, 14]
+    col_p = tabela_desejada.iloc[:, 15]
+    col_q = tabela_desejada.iloc[:, 16]
+    col_r = tabela_desejada.iloc[:, 17]
+    col_e = tabela_desejada.iloc[:, 4]
+    col_f = tabela_desejada.iloc[:, 5]
+    col_g = tabela_desejada.iloc[:, 6]
+    col_h = tabela_desejada.iloc[:, 7]
+    col_i = tabela_desejada.iloc[:, 8]
+    col_j = tabela_desejada.iloc[:, 9]
+    col_k = tabela_desejada.iloc[:, 10]
+    col_l = tabela_desejada.iloc[:, 11]
+    col_s = tabela_desejada.iloc[:, 18]
+
+    col_a2 = tabela_dois.iloc[:, 0]
+    col_b2 = tabela_dois.iloc[:, 1]
+    col_d2 = tabela_dois.iloc[:, 3]
+    col_e2 = tabela_dois.iloc[:, 4]
+
+    col_a3 = tabela_tres.iloc[:, 5]
+    geral = pd.DataFrame({'CCI': col_m, 'DESCRIÇÃO DO PRODUTO': col_n, 'QTD': col_c,
+                            'TARIFA APLICADA': col_o, 'VALOR FORNEC': col_p, 'TARIFA C/ IMPOSTOS': col_q,
+                              'B. CÁLC ICMS': col_r, 'ALIQ ICMS%': col_e, 'VALOR ICMS': col_f, 'B.CÁLC PIS/COFINS': col_g,
+                                'ALIQ PIS%': col_h, 'VALOR PIS': col_i, 'ALIQ COFINS%': col_j, 'VALOR COFINS': col_k, 'VALOR TOTAL': col_l,
+                                  'ITENS FINANCEIROS': col_s, 'DESCRIÇÃO': col_a2, 'BASE DE CÁLCULO': col_b2, 'ALÍQUOTA': col_d2, 'VALOR (R$)': col_e2, 'TENSÃO CONTRATADA': col_a3})
+    geral = geral.drop(0)
+    display(geral)
+    geral.to_csv("FINZALIZAÇÃO.csv", index=False)
