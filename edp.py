@@ -96,13 +96,14 @@ if tabela_desejada is not None:
     col_l = tabela_desejada.iloc[:, 11]
     col_s = tabela_desejada.iloc[:, 18]
 
+    tabela_desejada = tabela_desejada.drop(1)
     resultado_final = pd.DataFrame({'CCI': col_m, 'DESCRIÇÃO DO PRODUTO': col_n, 'QTD': col_c,
                             'TARIFA APLICADA': col_o, 'VALOR FORNEC': col_p, 'TARIFA C/ IMPOSTOS': col_q,
                               'B. CÁLC ICMS': col_r, 'ALIQ ICMS%': col_e, 'VALOR ICMS': col_f, 'B.CÁLC PIS/COFINS': col_g,
                                 'ALIQ PIS%': col_h, 'VALOR PIS': col_i, 'ALIQ COFINS%': col_j, 'VALOR COFINS': col_k, 'VALOR TOTAL': col_l,
                                   'ITENS FINANCEIROS': col_s})
     
-    resultado_final = resultado_final.drop(1)
+    
     
     #resultado_final.to_csv("resultado.csv", index=False)
 
@@ -213,3 +214,5 @@ if tabela_tres is not None:
     geral = geral.drop(0)
     display(geral)
     geral.to_csv("FINZALIZAÇÃO.csv", index=False)
+    print("O csv do boleto edp está pronto!")
+
