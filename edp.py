@@ -9,6 +9,7 @@ arquivo = tabula.read_pdf("edp.pdf", pages="1", multiple_tables=True)
 
 # Quantidade de tabelas encontradas
 print('Quantidade de tabelas na página: ', len(arquivo))
+print("A")
 
 # Filtra a tabela desejada com base no cabeçalho específico
 tabela_desejada = None
